@@ -1,0 +1,85 @@
+<view class="abouteam">
+    <nav-bar icontext='1' navbartext='{{title}}' idno='1'></nav-bar>
+    <view style="height: {{height}}px;width: 100%;"></view>
+    <view class="abouteam-swiper">
+        <view class="con-wrap ripple {{cardRightIn?'flipInY':''}} {{cardLeftIn?'fadeInLeft':''}}" wx:for="{{list}}" wx:if="{{index==currentIndex}}" wx:key="index">
+           
+                <view class="abouteam-title" bindtouchstart="touchstart" bindtouchmove="touchmove" data-index="{{index}}">
+                    <view class="{{index == 3?'titlea':'title'}}">
+                        <text>{{item.title}}</text>
+                    </view>
+                    <view class="abouteam-a">
+                        <text>{{item.titlea}}</text>
+                        <text class="clo">{{item.titlej}}</text>
+                        <text>{{item.titleja}}</text>
+                    </view>
+                    <view class="fs-sw">
+                        <text>{{item.titleb}}</text>
+                        <text class="clo">{{item.titlec}}</text>
+                        <text>{{item.titled}}</text>
+                    </view>
+                    <view class="img" wx:if="{{item.imgstaus == true}}">
+                        <image class="img" src="{{item.imgUrl}}" />
+                    </view>
+                    <view class="fs-sw">
+                        <text>{{item.titlef}}</text>
+                    </view>
+                    <view class="fs-sws">
+                        <text>{{item.titleh}}</text>
+                        <text class="clo">{{item.titlehc}}</text>
+                        <text >{{item.titlehd}}</text>
+                    </view>
+                </view>
+          
+        </view>
+    </view>
+     <view class="tswiper-btom">
+            <view wx:for="{{list}}" wx:key="index" class="{{currentIndex == index?'tswiper-seled':'tswiper-sel'}}"></view>
+        </view>
+    <view class="show" style="width:100%" wx:if="{{currentIndex == 1}}">
+        <view class="pinglun">
+            <text>评论</text>
+        </view>
+        <view class="aline"></view>
+       <view class="xun" style="width:100%" wx:for="{{plist}}" wx:key="index">
+            <view class="pinglun-detail">
+            <image class="icon" src="http://cgcp.thirdclassroom.com//Upload/team/57/16485215063.jpeg" />
+            <view class="content">
+                <view class="fonsi-ss">
+                    <text>张三</text>
+                </view>
+                <view class="fonsi-ser">
+                    <text>很棒的分享！很棒的分享！很棒的分享！</text>
+                </view>
+            </view>
+            <view class="fonsi-st">
+                <text>2月21日 16:30</text>
+            </view>
+        </view>
+        <block wx:if="{{item.coment.length}}" >
+            <view class="pinglun-one">
+            <view class="blocka" wx:for="{{item.coment}}" wx:key="index">
+                <image class="icon" src="http://cgcp.thirdclassroom.com//Upload/team/57/16485215063.jpeg" />
+            <view class="content-one">
+                <view class="fonsi-ss">
+                    <text>张三</text>
+                </view>
+                <view class="fonsi-ser">
+                    <text>很棒的分享！</text>
+                </view>
+            </view>
+            <view class="fonsi-st">
+                <text>2月21日 16:30</text>
+            </view>
+            </view>
+            <view class="fdsa" bindtap="loading" data-ind="{{index}}">共{{item.coment.length}}条评论，查看更多</view>
+        </view>
+        </block>
+       </view>
+    </view>
+    <view class="inp">
+        <input placeholder="分享你的看法..." class="input" bindinput="changeI" />
+        <view class="btn">发送</view>
+    </view>
+    <view style="windth:100%;height:96rpx;"></view>
+</view>

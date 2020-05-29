@@ -1,0 +1,9 @@
+{
+	"backgroundTextStyle": "light",
+	"navigationBarBackgroundColor": "#fff",
+	"navigationBarTitleText": "关于组队",
+	"navigationBarTextStyle": "black",
+	"usingComponents": {
+		"nav-bar": "/components/navbar/index"
+	}
+}
